@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:gravity="bottom"
+              android:orientation="vertical"
+              android:background="#ffffff"
+    >
+
+    <ListView
+        android:id="@+id/listView"
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1"
+        android:headerDividersEnabled="true"
+        android:footerDividersEnabled="true"
+        android:scrollbars="none"
+        android:background="#ffffff"
+        android:divider="#E6E6E6"
+        android:dividerHeight="1dp"
+        android:fadingEdge="none"
+        android:listSelector="#00000000"
+        android:cacheColorHint="#00000000"
+        />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#E6E6E6"/>
+    <Button
+        android:id="@+id/button_cancle_three"
+        android:layout_width="match_parent"
+        android:layout_height="43dp"
+        android:gravity="center"
+        android:text="取消"
+        android:textColor="#FF0000"
+        android:textSize="16sp"
+        android:textAppearance="?android:attr/textAppearanceButton"
+        android:background="@drawable/oper_item_list_bg" />
+
+</LinearLayout>

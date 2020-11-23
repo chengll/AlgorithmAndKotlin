@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="290dp"
+    android:layout_height="137dp"
+   >
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp">
+
+        <TextView
+            android:id="@+id/tv_finacial"
+            android:layout_width="wrap_content"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:layout_height="20dp"
+            android:singleLine="true"
+            android:textColor="#FFFFFF"
+            android:textSize="12sp"
+            android:gravity="center_vertical|center"
+            android:layout_alignParentLeft="true"
+            android:background="@drawable/youlikeshape"
+            android:text="理财产品" />
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/tv_finacial"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:textColor="#222222"
+            android:textSize="16sp"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_vertical"
+            android:text="个人天天盈1号G011209150" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="30dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp">
+
+        <RelativeLayout
+            android:id="@+id/rv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/tv_rate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:textColor="#F55058"
+                android:textSize="26sp"
+                android:textStyle="bold"
+                android:text="5.30" />
+
+            <TextView
+                android:id="@+id/finc_percent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/tv_rate"
+                android:layout_marginBottom="5dp"
+                android:layout_toEndOf="@+id/tv_rate"
+                android:text="%"
+                android:textColor="#F03741"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tv_pro_expected_rate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_rate"
+                android:layout_alignLeft="@+id/tv_rate"
+                android:layout_marginTop="5dp"
+                android:textColor="#999999"
+                android:textSize="14sp"
+                android:text="上日年化" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:gravity="center_horizontal"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/tv_pro_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/tv_purchase"
+                android:layout_marginBottom="5dp"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:textColor="#3E3E3E"
+                android:textSize="16sp"
+                android:text="50万元" />
+
+            <TextView
+                android:id="@+id/tv_purchase"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:ellipsize="end"
+                android:lines="1"
+                android:maxEms="7"
+                android:singleLine="true"
+                android:textColor="#666666"
+                android:textSize="14sp"
+                android:text="起购金额" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:gravity="center_horizontal"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/tv_pro_risk_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/tv_risk_gride"
+                android:layout_marginBottom="5dp"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:textColor="#3E3E3E"
+                android:textSize="16sp"
+                android:text="谨慎性" />
+
+            <TextView
+                android:id="@+id/tv_risk_gride"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:ellipsize="end"
+                android:lines="1"
+                android:maxEms="7"
+                android:singleLine="true"
+                android:textColor="#666666"
+                android:textSize="14sp"
+                android:text="风险等级" />
+
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>
