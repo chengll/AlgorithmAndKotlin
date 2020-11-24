@@ -1,2 +1,2 @@
-include ':app', ':mockhttplib'
+include ':app'
 rootProject.name='Demo'

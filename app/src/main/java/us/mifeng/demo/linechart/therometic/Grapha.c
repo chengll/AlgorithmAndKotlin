@@ -23,7 +23,7 @@ int arcNum,verNum;
 }AMLGrapha;
 
 
-//图的深度遍历的递归算法
+//基于邻接表存储结构的----图的深度遍历的递归算法
 /**
 @param Grapha 为图的结构
 @param v,表示深度遍历从哪个顶点出发
@@ -67,4 +67,5 @@ void df_traver2(Grapha G,int v){
           }
     }
 }
+
 
