@@ -89,19 +89,31 @@ fun main() {
     /***************************************for循环语句**************************************/
     fun forSyntax(){
         for (i in 1..6){
-            println(i);
+          //  println(i);
         }
     }
 
     for (item:Int in 1..9){
-        println(item);
+      //  println(item);
     }
 
-
-
-
+   /* for (i in array
+            .indices) {
+        println(array[i])
+    }*/
+    /***************************************return 语句**************************************/
+   loop@for(i in 1..10){
+       var j:Int=0;
+       if (j in  1..100){
+           if (j%i==0){
+               break@loop; //通过此种方式结束外层循环
+           }
+       }
+   }
 
 }
+
+
 
 
 
