@@ -127,7 +127,7 @@ int insertData(DLinkList list,int x,ElemType item,int n){
   return -1；
 }
 
-/*双向循环链表的删除操作，将线性表中x位置的元素从双向链表中删除*/
+/*双向循环链表的删除操作，将线性表中x位置的元素从双向链表中删除 */
 int deleteElem(DLinkList list,ElemType x){
 	DLinkList q;
 	q=list->rink;
