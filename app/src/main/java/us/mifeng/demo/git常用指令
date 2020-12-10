@@ -1,0 +1,61 @@
+如果的git项目之前是 test，后来改名为test1了，这时候你的git的拉取的路径也发生了变化，
+使用以下指令来修改远程拉代码地址，否则如果你新建分支提交到github时显示仓库不存在
+//1.git remote set-url origin "https://github.com/chegnll/test1.git"
+git将本地修改的分支推送到远端
+//2.git push --set-upstream origin dev（dev为创建本地分支的名字）
+git 删除远程分支
+//git push origin --delete dev(删除远程dev,前提是切换到别的分支)
+
+git删除本地分支
+//git branch -d lcalbranchName(删除本地分支)
+git 切换分支
+//git checkout branchName(git checkout dev)
+git创建分支
+//git branch branchName(git branch dev创建dev分支)
+git 查看分支详情
+//git branch -v(包括分支的指向的commitId和以及提交信息)
+git 查看分支
+//git branch -a
+git 切换并创建分支
+//git checkout -b local (当前在dev分支，使用该指令后新建了local并切换到local分支)
+git强制删除分支
+//git branch -D dev(git强制删除dev分支，前提是切换到别的分支)
+git分支合并（无冲突合并）
+//git merge --no-ff  -m "将pro分支合并到master分支"(前提，当前的分支是master,然后将pro合并到master上)
+注意：git分支合并的时候可能有冲突，需要手动解决，解决完成后需要add . 和commit命令
+
+git查看记录,通过该指令可以看到提交过的commitid,
+//git log
+git代码回退到指定版本
+//使用“git reset --hard 目标版本号”命令将版本回退：
+然后使用git push -f 强制推送上去，不然拉代码会报错，因为当前你回退了版本，与远程端的不同步
+
+git查看所有的记录，包括删除和现在的
+//git reflog
+
+git拉取代码的指令
+//git clone git://github.com/schacon/grit.git
+从git中删除指定文件
+//git  rm 文件名(包括路径)
+查看当前状态
+//git status
+查看所有的分支
+//git branch -a
+查看远程所有分支
+//git branch -r
+查看尚未暂存的更新
+//git diff
+
+git回退当前版本 但是不能影响前面的（比如当前的有版本一 ，版本二和版本三，想回退版本二，但是不能影响版本三，
+这时候就可以用 git revert 命令来反做版本二，生成新的版本四，这个版本四里会保留版本三的东西，但撤销了版本二的东西）
+// “git revert -n 版本号”反做，并使用“git commit -m 版本名”提交：
+（1）反做，使用“git revert -n 版本号”命令。如下命令，我们反做版本号为8b89621的版本：
+
+git revert -n 8b89621019c9adc6fc4d242cd41daeb13aeb9861
+注意： 这里可能会出现冲突，那么需要手动修改冲突的文件。而且要git add 文件名。
+（2）提交，使用“git commit -m 版本名”，如：
+
+git commit -m "revert add text.txt"
+此时可以用“git log”查看本地的版本信息，可见多生成了一个新的版本，该版本反做了“add text.txt”版本，
+但是保留了“add text2.txt”版本：
+最后要使用git push推送到远端
