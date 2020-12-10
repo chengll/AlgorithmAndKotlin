@@ -20,6 +20,8 @@ git 切换并创建分支
 //git checkout -b local (当前在dev分支，使用该指令后新建了local并切换到local分支)
 git强制删除分支
 //git branch -D dev(git强制删除dev分支，前提是切换到别的分支)
+git 撤销本地merge 指令
+//git reset --hard ORIG_HEAD
 git分支合并（无冲突合并）
 //git merge --no-ff  -m "将pro分支合并到master分支"(前提，当前的分支是master,然后将pro合并到master上)
 注意：git分支合并的时候可能有冲突，需要手动解决，解决完成后需要add . 和commit命令
