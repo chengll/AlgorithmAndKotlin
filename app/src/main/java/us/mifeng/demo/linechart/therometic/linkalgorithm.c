@@ -377,3 +377,5 @@ void inverseLinear(LinkList list){
 
 
 
+
+
