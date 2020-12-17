@@ -358,22 +358,22 @@ void inverseLinear(LinkList list){
 
    	通过栈来实现递归算法
 
-   	int fun(int m,int n){
-   		int Stack[MaxSize],top=-1；
-   		if (m*n!=0)
-   		{
-   			Stack[++top]=m-1;
-   			n--;
-   		}else{
-   			n=m+n+1;
-   			if (top>0)
-   			{
-   			m= Stack[top--];
-   			top--;
-   			}
-   		}while(top>=-1);
-   		return -1;
-   	}
+   	int fun（int m,int n）{
+    	int Stack[MaxSize],top=-1;
+    	if (m*n!=0)
+    	{
+    		Stack[++top]=m-1;
+    		n--;
+    	}else{
+    		n=n+m+1;
+    		if (top>0)
+    		{
+    			Stack[top--]=m;
+    			top--;
+    		}
+    	}while(top>=-1);
+    	return n;
+    }
 
 
 
