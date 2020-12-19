@@ -30,8 +30,9 @@
 
  */
 typedef struct{
-    BTree *data;
+   char data[maxSize];
     int maxSize;
+    int top;
 }Stack;
 
 typedef struct BTNode{
