@@ -22,6 +22,7 @@ void deleteQ(LinkList &L,LinkList q){
 	}
 }
 
+//查找线性表中值为k的元素
 LinkList getLink(LinkList L,int k){
 	LinkList q=p=list;
 	int i;

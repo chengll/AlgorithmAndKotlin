@@ -17,7 +17,8 @@
      int temp,j;
   for(int i=1;i<n;i++){
       temp=arr[i];
-      for (int j = i-1;j>=0 && temp<arr[j]; j--) //升序排列，如果当前的temp值小于arr【j】的值，则要
+       j = i-1;
+      for (j ;j>=0 && temp<arr[j]; j--) //升序排列，如果当前的temp值小于arr【j】的值，则要
       {
           arr[j++]=arr[j];
       }

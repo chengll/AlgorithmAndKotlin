@@ -33,7 +33,6 @@ import java.net.URLEncoder;
 
 import us.mifeng.demo.bottomdialog.LPAlertDialog;
 import us.mifeng.demo.bottomdialog.LPPromptDialog;
-import us.mifeng.demo.linechart.therometic.TheoryMatic;
 import us.mifeng.demo.utils.GenerateValueFiles;
 import us.mifeng.demo.utils.UtilAnim;
 import us.mifeng.demo.utils.UtilBitmap;
@@ -68,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
         int arr[]=new int[]{1,3,5,5,8,10,12};
         //获取元素在数组中的位置
        // Log.d("testLocate", "onCreate: ----5在数组中的位置是--"+TheoryMatic.locate(arr,6));
-        Log.d("testLocate", "onCreate: ----5在数组中的位置是--"+TheoryMatic.insertData(arr, 23,3,arr.length));
+      //  Log.d("testLocate", "onCreate: ----5在数组中的位置是--"+TheoryMatic.insertData(arr, 23,3,arr.length));
 
         clickChange = findViewById(R.id.clickChange);
         close = findViewById(R.id.close);
