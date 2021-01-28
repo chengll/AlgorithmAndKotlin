@@ -1,0 +1,12 @@
+package us.mifeng.demo.kotlin.chapter3.userInfobject
+
+import java.lang.IllegalArgumentException
+interface Expr
+class Num(val value:Int):Expr
+class Sum(val left:Expr,val right:Expr):Expr
+fun eval(e:Expr):Int=
+        when(e){
+            is Num->e.value
+            is Sum-> eval(e.left) + eval(e.right)
+            else ->throw IllegalArgumentException("unknown expression")
+        }
