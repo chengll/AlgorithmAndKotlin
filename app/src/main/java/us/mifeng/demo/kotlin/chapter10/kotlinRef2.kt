@@ -1,7 +1,6 @@
-package us.mifeng.demo.kotlin.kotlinreflect
+package us.mifeng.demo.kotlin.chapter10
 
 import java.lang.IllegalArgumentException
-import kotlin.reflect.full.memberProperties
 import kotlin.reflect.full.primaryConstructor
 
 data class UserDTO1(val id: Int, val login: String,

@@ -1,8 +1,9 @@
-package us.mifeng.demo.kotlin.kotlinreflect
+package us.mifeng.demo.kotlin.chapter10
 
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 
 fun main() {
     GlobalScope.launch {
@@ -10,14 +11,14 @@ fun main() {
         println("world");
     }
     println("Hello");
-    Thread.sleep(2000L);
+    runBlocking {
+        delay(2000L);
+    }
 }
 
 /*
 *  result:
-*   Hello
-    world
-
-    注意如果将Thread的休眠时间也修改为 1000L时只能打印Hello
 *
+* Hello
+  world
 * */

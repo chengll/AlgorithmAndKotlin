@@ -1,8 +1,6 @@
-package us.mifeng.demo.kotlin.kotlinreflect
+package us.mifeng.demo.kotlin.chapter10
 
-import java.lang.reflect.ParameterizedType
 import kotlin.reflect.full.declaredFunctions
-import kotlin.reflect.full.declaredMemberProperties
 
 class UserDTO
 interface Api{
@@ -18,14 +16,14 @@ abstract class SuperType<T>{
     }
 }
 
-class SubType:SuperType<String>()
+class SubType: SuperType<String>()
 
-data class Person(val id:Int,val name:String,val group:Group )
+data class Person(val id:Int,val name:String,val group: Group)
 data class Group(val id:Int,val name:String,val location:String)
 
 fun main() {
     Api::class.declaredFunctions.first{it.name=="getUsers"}.returnType.arguments
             .forEach { println(it); }
-    var person=Person(0,"honey",Group(0,"kotlin","china"));
+    var person= Person(0, "honey", Group(0, "kotlin", "china"));
 }
 

@@ -1,4 +1,4 @@
-package us.mifeng.demo.kotlin.kotlinreflect
+package us.mifeng.demo.kotlin.chapter10
 
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.runBlocking
@@ -6,8 +6,8 @@ import kotlin.system.measureTimeMillis
 
 fun main()= runBlocking <Unit>{
     val time= measureTimeMillis {
-        val one=doSomeThingUsefulOne()
-        val two=doSomeThingUsefulTwo();
+        val one= doSomeThingUsefulOne()
+        val two= doSomeThingUsefulTwo();
         println("The answer is ${one +two}");
     }
     println("complete in ${time} ms")
