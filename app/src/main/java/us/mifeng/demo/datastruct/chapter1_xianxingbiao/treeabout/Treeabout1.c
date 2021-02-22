@@ -134,10 +134,31 @@
            到这里二叉树的结点关系已经特别清晰了。
            所以最终确定的二叉树的结构请查看drawable/midandpost.jpg 图
 
-
-
-
-
-
 */
+
+//二叉树的中序非递归算法  （左子树  根结点  右子树）
+
+typedef struct BitNode{
+        TElemType data;
+        struct  BitNode *lChild,*rChild;
+        }BitNode,*BiTree;
+
+Status inOrderTraverse(BiTree T){
+  BiTree p;
+  initStack(&S);
+  p=T;
+  if(!T) return ERROR;
+  while(p ||!stackIsEmpty(S)){
+   if(p){
+     push(p); //将根结点压入栈
+     p=p->rChild; //当前指针指向它的左孩子
+   }else{
+     //如果左孩子的左孩子为空，则访问该结点
+     pop(S,q);//左孩子的左孩子为空时出栈，然后让q指针指向当前的结点，
+     println(p->data);//模拟访问根结点
+     p=q->rchild; //指向当前结点的右孩子
+   }
+  }
+  return OK;
+}
 
