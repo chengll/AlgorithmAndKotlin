@@ -162,3 +162,40 @@ Status inOrderTraverse(BiTree T){
   return OK;
 }
 
+/*
+二叉树的层次遍历
+  对于一棵非空的二叉树，按照从上到下，从左到右的顺序访问每一个结点，当且仅当每个结点只访问一次
+  二叉树的层次遍历的示意图，请查看drawable/treelevel.jpg 图
+
+  算法实现的思路： 使用队列来实现；
+   1.首先将根结点入队，
+   2.队列不为空时循环，从队列中出队一个结点 * p访问它，
+   3.若该结点有左孩子，则将该节点的左孩子入队；
+   4.若该节点有右孩子，则让它的右孩子入队列
+
+*/
+
+顺序循环队列的数据结构描述
+#define MAXSIZE 100
+typedef struct {
+ BitNode data[MAXSIZE]; //存放的元素
+ int front,rear;  //队头和队尾元素
+} SqQueue        //顺序循环队列
+
+//二叉树层次遍历算法的实现
+
+void treeLevelOrder(BitNode * b){
+ InitQueeu(&Q);
+ BitNode *p;
+  enQueue(Q,p);  //将根结点入队
+ while(!QueueEmpty(Q)){
+   Dequeue(Q,p) ;// 如果队列不空，则出栈
+   println(p->data) ; //访问出栈的结点
+   if(p->lChild!=NUll){
+   enQueue(Q,p->lChild);//让刚访问过结点的左孩子入队列
+   }else{
+   enQueue(Q,p->rChild); //让刚访问过结点的右孩子入队列
+   }
+ }
+}
+
