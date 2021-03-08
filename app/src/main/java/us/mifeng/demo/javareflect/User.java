@@ -1,9 +1,9 @@
 package us.mifeng.demo.javareflect;
 
 public class User {
-    private String name;
-    private int id;
-    private int age;
+    public String name;
+    public int id;
+    public int age;
 
     public String getName() {
         return name;
