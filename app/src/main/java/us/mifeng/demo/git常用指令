@@ -48,6 +48,102 @@ git拉取代码的指令
 查看尚未暂存的更新
 //git diff
 
+优雅查看日志
+//git log --graph --pretty=oneline --abbrev-commit
+git撤销commit 记录
+//1.git log   找到需要撤销的commit 对应的id 比如：84ab8a755192fcec2e9bc1fea53dc56f2b0a0b17
+//2.执行 git reset --hard 84ab8a755192fcec2e9bc1fea53dc56f2b0a0b17 即可撤销本次提交记录
+/*
+删除远程库
+    如果添加的时候地址写错了，或者就是想删除远程库，可以用git remote rm <name>命令。使用前，
+    建议先用git remote -v查看远程库信息：
+
+     git remote -v
+    origin  git@github.com:michaelliao/learn-git.git (fetch)
+    origin  git@github.com:michaelliao/learn-git.git (push)
+    然后，根据名字删除，比如删除origin：
+
+     git remote rm origin
+*/
+
+当你接到一个修复一个代号101的bug的任务时(假设该bug在master分支上)，很自然地，
+你想创建一个分支issue-101来修复它，但是，当前正在dev上进行的工作还没有提交：如果当前dev分支上的修改不进行提交,
+不能切换到master分支上去修复bug,幸好，Git还提供了一个stash功能，可以把当前工作现场“储藏”起来，等以后恢复现场后继续工作,
+使用git stash ,然后用git status查看工作区，就是干净的（除非有没有被Git管理的文件），
+因此可以放心地创建分支来修复bug。修复完 查看切分支时候存储的值 git stash list 就可以看到上次存储的内容
+比如有 @stash{0},查看stash{0}的内容就用git stash show -p @stash{0},
+
+但是需要恢复一下，有两个办法：　　
+　　 一种是用git stash apply恢复，但是恢复后，stash内容并不删除，你需要用git stash drop来删除；
+ 　　另一种方式是用git stash pop，恢复的同时把stash内容也删了：再用git stash list查看，就看不到任何stash内容了
+
+ 你可以多次stash，恢复的时候，先用git stash list查看，然后恢复指定的stash，用命令：
+
+ 　　　　$ git stash apply stash@{0}  然后git stash drop删除
+
+
+ 推送分支
+ 推送分支，就是把该分支上的所有本地提交推送到远程库。推送时，要指定本地分支，这样，Git就会把该分支推送到远程库对应的远程分支上：
+
+ $ git push origin master
+ 如果要推送其他分支，比如dev，就改成：
+
+ $ git push origin dev
+
+
+推送分支时 先git pull如果提示no tracking information，则说明本地分支和远程分支的链接关系没有创建，
+ 用命令git branch --set-upstream-to <branch-name> origin/<branch-name>。
+ 这就是多人协作的工作模式，一旦熟悉了，就非常简单
+
+ 建立本地分支和远程分支的关联，使用git branch --set-upstream branch-name origin/branch-name；
+
+
+
+
+/*
+误删除分支找回来的办法：
+1.查看所有的引用变动的日志
+  //git reflog
+
+2.//通过上面的git reflog 就可以看到最近代码的变动和变动版本的commit id ,比如删除分支save 的id 为6c4a469,
+    则切回到删除分支之前的那个ID
+    git checkout 6c4a469
+3. git checkout -b save  这样就可以找回删除的分支了
+*/
+
+/*撤销已经push 到远端的记录的步骤
+    //1.git log   找到需要撤销的commit 对应的id 比如：84ab8a755192fcec2e9bc1fea53dc56f2b0a0b17
+    //2.执行 git reset --hard 84ab8a755192fcec2e9bc1fea53dc56f2b0a0b17 即可撤销本次提交记录
+    //3.git push origin HEAD --force
+*/
+
+git diff HEAD -- readme.txt命令可以查看工作区和版本库里面最新版本的区别
+
+你不但写了一些胡话，还git add到暂存区了：庆幸的是，在commit之前，你发现了这个问题。用git status查看一下，
+修改只是添加到了暂存区，还没有提交：
+
+                        $ git status
+                        On branch master
+                        Changes to be committed:
+                          (use "git reset HEAD <file>..." to unstage)
+
+                        	modified:   readme.txt
+                        Git同样告诉我们，用命令git reset HEAD <file>可以把暂存区的修改撤销掉（unstage），重新放回工作区：
+
+                        $ git reset HEAD readme.txt
+                        Unstaged changes after reset:
+                        M	readme.txt
+                        git reset命令既可以回退版本，也可以把暂存区的修改回退到工作区。当我们用HEAD时，表示最新的版本。
+
+删除文件：第一种 要从版本库中删除该文件，那就用命令git rm删掉，并且git commit
+         第二种 是删错了，因为版本库里还有呢，所以可以很轻松地把误删的文件恢复到最新版本：
+
+              $ git checkout -- test.txt
+              git checkout其实是用版本库里的版本替换工作区的版本，无论工作区是修改还是删除，都可以“一键还原”
+
+
+
+
 git回退当前版本 但是不能影响前面的（比如当前的有版本一 ，版本二和版本三，想回退版本二，但是不能影响版本三，
 这时候就可以用 git revert 命令来反做版本二，生成新的版本四，这个版本四里会保留版本三的东西，但撤销了版本二的东西）
 // “git revert -n 版本号”反做，并使用“git commit -m 版本名”提交：
