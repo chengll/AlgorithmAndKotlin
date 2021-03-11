@@ -83,3 +83,65 @@ int leafCount(BiTree T){
 
  树和森林：
 */
+
+//树的双亲表示法结点的类型C描述
+
+typedef struct PTNode{
+    TElemtType data; //存储元素的值
+    int parent; //双亲的位置
+}PTNode;
+
+
+//树的双亲表示法树的结构
+#define MAXSIZE 100
+typedef struct{
+ PTNode nodes[MAXSIZE]; //用数组存放所有的结点
+ int r;  //根结点的位置
+ int n;  //存放结点的个数
+}
+
+//树的双亲表示法，找双亲容易 找孩子难  具体存储示意图请查看 drawable/parentastree
+
+//2.树的表示法2表示树的结构
+/*
+ 树的孩子链表表示法：
+  把每个结点的矮子结点排列起来，看成一个链表，用单链表存储，则n个结点有n个孩子链表（叶子的孩子链表为空）
+  而n个头指针又构成了一个线性表（可以使用一维数组来存放头结点），，具体请查看drawable/childastree.jpg
+*/
+
+//树的孩子链表表示法的 C语言结构描述
+
+//1.树的孩子链--孩子结点结构：
+ typedef struct CTNode{
+      int child; //表示该孩子在数组中的编号
+      struct CTNode *next; //下个指针 ，任然是CTNode 类
+ }CTNode,*ChildPtr;
+
+ //2.树的孩子链--双亲结点结构
+ typedef struct {
+   TElemType data; //存放结点数据，比如A，B
+   ChildPtr firstChild; //存放指向第一个孩子的指针，指针类型为ChildPtr
+ }CTBox;
+
+ //树的孩子链--树的结构
+ #define MAXISE 100
+ typedef struct {
+  CTBox  data[MAXISE];  //存放所有的孩子双亲
+  int n; //存放结点的总数
+  int r;//存放双亲在数组中的位置
+ }CTree;
+
+ //总之是树的结构存储着双亲，双亲的结构管理着孩子，通过双亲就可以获取孩子的一系列属性，
+ //树的孩子链表法找孩子容易，找双亲难
+
+ //3.树的存储结构---带表双亲的孩子链表示法，在双亲的结点结构中增加一个变量，来存放头结点的双亲的下标，其他的结构和孩子链表法结构一致
+ //具体请查看图 drawable/parentchildtree.jpg
+
+ //2.带表双亲的孩子链表示法--双亲结点结构
+  typedef struct {
+    int parent; //表示当前的结点的双亲
+    TElemType data; //存放结点数据，比如A，B
+    ChildPtr firstChild; //存放指向第一个孩子的指针，指针类型为ChildPtr
+  }CTBox;
+
+//由于带表双亲的孩子链表示孩子结构和树的结构没有变化，这里不再重复，看孩子链表即可
