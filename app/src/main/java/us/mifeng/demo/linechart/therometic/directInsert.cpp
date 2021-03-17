@@ -13,7 +13,7 @@
  */
 
 //直接插入法  请查看drawable 中的directinsertimg.png 看执行过程
- void directInsert(int arr[],int elem,int n){
+ void directInsert(int arr[],int n){
      int temp,j;
   for(int i=1;i<n;i++){
       temp=arr[i];

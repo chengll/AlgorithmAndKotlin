@@ -40,5 +40,5 @@ void merge(int arr[],int low,int mid,int high){
           int mid=(low+high)/2;
           mergeSort(arr,low,high);
           mergeSort(arr,mid+1,high);
-          merge(arr,low,mid-1);
+          merge(arr,low,mid-1,high);
      }
